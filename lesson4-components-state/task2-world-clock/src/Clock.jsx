@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import moment from 'moment';
 import './clock.scss';
 
-const formatDate = date => moment(date).format('h:mm:ss a');
+const formatDate = date => moment(date).format('LTS');
 
 const getTimeWithOffset = offset => {
   const currentTime = new Date();
@@ -23,7 +23,7 @@ class Clock extends Component {
 
     setInterval(() => {
       this.setState({
-        time: getTimeWithOffset(props.offset),
+        time: this.state.time,
       });
     }, 1000);
   }
@@ -32,7 +32,7 @@ class Clock extends Component {
       <div className="clock">
         <div className="clock__location">{this.state.location}</div>
         <div className="clock__time">
-          {formatDate(this.state.time)}
+          {formatDate(getTimeWithOffset(this.state.time))}
         </div>
       </div>
     );
