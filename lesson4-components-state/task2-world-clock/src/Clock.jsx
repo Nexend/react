@@ -32,7 +32,7 @@ class Clock extends Component {
       <div className="clock">
         <div className="clock__location">{this.state.location}</div>
         <div className="clock__time">
-          {formatDate(new Date(this.state.time))}
+          {formatDate(this.state.time)}
         </div>
       </div>
     );
