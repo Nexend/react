@@ -14,9 +14,9 @@ class ColorPicker extends Component {
   }
 
   showTitle = e => {
-    console.log(e.target);
+    const colorName = e.target.dataset.name;
     this.setState({
-      color: (this.state.color = e.target.dataset.name),
+      color: (this.state.color = colorName),
     });
   };
   hideTitle = e => {
