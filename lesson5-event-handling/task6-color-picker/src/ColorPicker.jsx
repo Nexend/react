@@ -13,17 +13,16 @@ class ColorPicker extends Component {
     };
   }
 
-  showTitle = e => {
-    const colorName = e.target.dataset.name;
+  showTitle = name => {
     this.setState({
-      color: (this.state.color = colorName),
+      color: (this.state.color = name),
     });
   };
-  hideTitle = e => {
+  hideTitle() {
     this.setState({
       color: '',
     });
-  };
+  }
 
   render() {
     return (
@@ -31,25 +30,22 @@ class ColorPicker extends Component {
         <div className="picker__title">{this.state.color}</div>
         <div>
           <button
-            data-name="Coral"
             style={{ backgroundColor: CORAL }}
             className="picker__button picker__button_coral"
-            onMouseOver={e => this.showTitle(e)}
-            onMouseOut={e => this.hideTitle(e)}
+            onMouseOver={() => this.showTitle('Coral')}
+            onMouseOut={() => this.hideTitle()}
           ></button>
           <button
-            data-name="Aqua"
             style={{ backgroundColor: AQUA }}
             className="picker__button picker__button_aqua"
-            onMouseOver={e => this.showTitle(e)}
-            onMouseOut={e => this.hideTitle(e)}
+            onMouseOver={() => this.showTitle('Aqua')}
+            onMouseOut={() => this.hideTitle()}
           ></button>
           <button
-            data-name="Bisque"
             style={{ backgroundColor: BISQUE }}
             className="picker__button picker__button_bisque"
-            onMouseOver={e => this.showTitle(e)}
-            onMouseOut={e => this.hideTitle(e)}
+            onMouseOver={() => this.showTitle('Bisque')}
+            onMouseOut={() => this.hideTitle()}
           ></button>
         </div>
       </div>
