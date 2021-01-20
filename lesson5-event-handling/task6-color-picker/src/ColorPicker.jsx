@@ -34,22 +34,22 @@ class ColorPicker extends Component {
             data-name="Coral"
             style={{ backgroundColor: CORAL }}
             className="picker__button picker__button_coral"
-            onMouseEnter={e => this.showTitle(e)}
-            onMouseLeave={e => this.hideTitle(e)}
+            onMouseOver={e => this.showTitle(e)}
+            onMouseOut={e => this.hideTitle(e)}
           ></button>
           <button
             data-name="Aqua"
             style={{ backgroundColor: AQUA }}
             className="picker__button picker__button_aqua"
-            onMouseEnter={e => this.showTitle(e)}
-            onMouseLeave={e => this.hideTitle(e)}
+            onMouseOver={e => this.showTitle(e)}
+            onMouseOut={e => this.hideTitle(e)}
           ></button>
           <button
             data-name="Bisque"
             style={{ backgroundColor: BISQUE }}
             className="picker__button picker__button_bisque"
-            onMouseEnter={e => this.showTitle(e)}
-            onMouseLeave={e => this.hideTitle(e)}
+            onMouseOver={e => this.showTitle(e)}
+            onMouseOut={e => this.hideTitle(e)}
           ></button>
         </div>
       </div>
