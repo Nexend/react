@@ -4,7 +4,7 @@ import Offline from './Offline.jsx';
 
 class Status extends Component {
   state = {
-    isOnline: true,
+    isOnline: false,
   };
 
   render() {
