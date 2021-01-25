@@ -20,7 +20,6 @@ class ConnectionStatus extends Component {
   }
 
   statusOnline = e => {
-    console.log(e.target);
     this.setState({
       status: 'online',
     });
@@ -33,11 +32,15 @@ class ConnectionStatus extends Component {
   };
 
   render() {
-    return this.state.status === 'online' ? (
-      <div className="status">{this.state.status}</div>
-    ) : (
-      <div class="status status_offline">{this.state.status}</div>
-    );
+    let statusNetwork;
+
+    if (navigator.onLine) {
+      statusNetwork = <div className="status">{this.state.status}</div>;
+    } else {
+      statusNetwork = <div className="status status_offline">{this.state.status}</div>;
+    }
+
+    return statusNetwork;
   }
 }
 
