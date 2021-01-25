@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
 
 class ConnectionStatus extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      status: 'online',
-    };
-  }
+  state = {
+    status: 'online',
+  };
 
   componentDidMount() {
     window.addEventListener('online', this.statusOnline);
@@ -19,28 +15,24 @@ class ConnectionStatus extends Component {
     window.removeEventListener('offline', this.statusOffline);
   }
 
-  statusOnline = e => {
+  statusOnline = () => {
     this.setState({
       status: 'online',
     });
   };
 
-  statusOffline = e => {
+  statusOffline = () => {
     this.setState({
       status: 'offline',
     });
   };
 
   render() {
-    let statusNetwork;
-
-    if (navigator.onLine) {
-      statusNetwork = <div className="status">{this.state.status}</div>;
-    } else {
-      statusNetwork = <div className="status status_offline">{this.state.status}</div>;
-    }
-
-    return statusNetwork;
+    return this.state.status == 'online' ? (
+      <div className="status">{this.state.status}</div>
+    ) : (
+      <div className="status status_offline">{this.state.status}</div>
+    );
   }
 }
 
