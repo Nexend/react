@@ -3,39 +3,27 @@ import User from './User.jsx';
 import Filter from './Filter.jsx';
 
 class UsersList extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      name: '',
-      filtering: null,
-    };
-  }
+  state = {
+    value: '',
+  };
 
   handleChange = event => {
-    const { name, value, checked, type } = event.target;
-
-    const val = type === 'checkbox' ? checked : value;
-
     this.setState({
-      [name]: val.toLowerCase(),
+      value: event.target.value,
     });
   };
 
   render() {
-    let usersList = this.props.users;
-
-    const filteringUserList = usersList.filter(user =>
-      user.name.toLowerCase().includes(this.state.name) ? user.name : false,
-    );
-
-    let count = filteringUserList.length;
+    let userList =
+      this.props.value === ''
+        ? this.props.users
+        : this.props.users.filter(user => user.name.toLowerCase().includes(this.state.value));
 
     return (
       <div>
-        <Filter filterText={this.state.name} onChange={this.handleChange} count={count} />
+        <Filter filterText={this.state.name} onChange={this.handleChange} count={userList.length} />
         <ul className="users">
-          {filteringUserList.map(user => (
+          {userList.map(user => (
             <User key={user.id} {...user} />
           ))}
         </ul>
