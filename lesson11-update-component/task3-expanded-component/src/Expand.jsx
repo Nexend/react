@@ -6,7 +6,7 @@ const Expand = ({ children, title, isOpen, onToggle }) => {
 
   if (!isOpen) {
     arrow = <i className="fas fa-chevron-down"></i>;
-    content = '';
+    content = <div className="expand__content"></div>;
   } else {
     arrow = <i className="fas fa-chevron-up"></i>;
     content = <div className="expand__content">{children}</div>;
