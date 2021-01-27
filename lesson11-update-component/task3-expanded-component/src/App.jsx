@@ -2,22 +2,6 @@ import React, { Component } from 'react';
 import Expand from './Expand';
 
 class App extends Component {
-  state = {
-    isOpen: false,
-  };
-
-  handleToggle = () => {
-    if (this.state.isOpen) {
-      this.setState({
-        isOpen: false,
-      });
-    } else {
-      this.setState({
-        isOpen: true,
-      });
-    }
-  };
-
   render() {
     const elem = (
       <p>
@@ -28,9 +12,7 @@ class App extends Component {
 
     return (
       <div className="app">
-        <Expand onToggle={this.handleToggle} isOpen={this.state.isOpen} title="Some title">
-          {elem}
-        </Expand>
+        <Expand title="Some title">{elem}</Expand>
       </div>
     );
   }
